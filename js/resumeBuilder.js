@@ -1,8 +1,3 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
-$("#main").append("Maulik Dave");
-*/
-
 var bio = {
 	"myname"     : "Maulik Dave",
 	"role"       : "Application Developer",
@@ -12,7 +7,7 @@ var bio = {
 					         "address" : "Buffalo, NY"
 				         },
 	"welcome"    : "Hello World! (Deja Vu - command line to online)",
-	"skills"     : ["programming", "technical sales support"],
+	"skills"     : ["Programming", "Data Analytics", "Technical sales"],
 	"picture"    : "images/me.jpg" 
 }
 
@@ -47,19 +42,19 @@ var work = {
     	 "title"        : "IT Analyst",
        "dates"        : "2013-present",
     	 "location"     : "Buffalo, NY",
-    	 "description"  : "IT Analyst, Application Development"
+    	 "description"  : "Application Development and Support."
     },
     {	"employer"     : "IBM",
     	"title"        : "Technical Sales Support",
     	"dates"        : "2007-2013",
     	"location"     : "Buffalo, NY",
-    	"description"  : "Pre-sales and post-sales support"
+    	"description"  : "Pre-sales and post-sales support."
     },
     {	"employer"     : "IBM",
     	"title"        : "Engineer",
     	"dates"        : "2002-2006",
     	"location"     : "Rochester, MN",
-    	"description"  : "Storage Controller ASIC Design and Verification"
+    	"description"  : "Storage Controller ASIC Design and Verification."
     }
    	]
 }
@@ -69,12 +64,22 @@ var projects = {
        {
        	 "title": "Frontend Development",
        	 "dates": "2015",
-       	 "description": "HTML, CSS, JavaScript",
-       	 "images" : ["http://www.phone-lab.org"]
+       	 "description": "Learning HTML, CSS, JavaScript.",
+       	 "images" : []
        }
 
 	]
 }
 
+function inName(name) {
+  name = name.trim().split(" ");
+  console.log(name);
+  name[1] = name[1].toUpperCase();
+  name[0] = name[0].slice(0,1).toUpperCase() + name[0].slice(1).toLowerCase();
+  return name[0] + " " + name[1];
+}
+$('#main').append(internationalizeButton);
 
+// Google Map
+$("#mapDiv").append(googleMap);
  

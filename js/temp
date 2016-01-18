@@ -1,0 +1,45 @@
+var formattedName     =  HTMLheaderName.replace("%data%", bio.myname);
+ var formattedRole     =  HTMLheaderRole.replace("%data%", bio.role);
+ var formattedmobile   =  HTMLmobile.replace("%data%", bio.contacts.mobile);
+ var formattedemail    =  HTMLemail.replace("%data%", bio.contacts.email);
+ var formattedgithub   =  HTMLgithub.replace("%data%", bio.contacts.github);
+ var formattedlocation =  HTMLlocation.replace("%data%", bio.contacts.address);
+ var formattedmsg      =  HTMLwelcomeMsg.replace("%data%", bio.welcome);
+ var formattedpicture  =  HTMLbioPic.replace("%data%", bio.picture)
+
+ var job             =  HTMLworkEmployer.replace("%data%", work.employer); 
+ var jobtitle        =  HTMLworkTitle.replace("%data%", work.title);
+ var jobyears        =  HTMLworkDates.replace("%data%", work.dates);
+ var joblocation     =  HTMLworkLocation.replace("%data%", work.location);
+ var jobdescription  =  HTMLworkDescription.replace("%data%", work.description);
+ 
+ var eduname   = HTMLschoolName.replace("%data%", education["schools"].name);
+ var edudegree   = HTMLschoolDegree.replace("%data%", education["schools"].degree);
+ var edutime     = HTMLschoolDates.replace("%data%",education["schools"].years);
+ var educity     = HTMLschoolLocation.replace("%data%", education["schools"].city);
+ var edumajor    = HTMLschoolMajor.replace("%data%", education["schools"].major);
+ 
+ $("#header").prepend(formattedRole);
+ $("#header").prepend(formattedName);
+
+ $("#topContacts").prepend(formattedmobile);
+ $("#topContacts").prepend(formattedemail);
+ $("#topContacts").prepend(formattedgithub);
+ $("#topContacts").prepend(formattedlocation);
+ $("#topContacts").prepend(formattedmsg);
+ $("#topContacts").prepend(formattedpicture);
+
+
+ $("#workExperience").append(HTMLworkStart);
+ $("#workExperience").append(job);
+ $("#workExperience").append(jobtitle);
+ $("#workExperience").append(jobyears);
+ $("#workExperience").append(joblocation);
+ $("#workExperience").append(jobdescription);
+
+ $("#education").append(HTMLschoolStart);
+ $("#education").append(eduname);
+ $("#education").append(edudegree);
+ $("#education").append(edutime);
+ $("#education").append(educity);
+ $("#education").append(edumajor);
