@@ -5,11 +5,7 @@
   <link href="css/style.css" rel="stylesheet">
   <script src="js/jQuery.js"></script>
   <script src="js/helper.js"></script>
-  <!--
-  Uncomment the <script> tag below when you're ready to add an interactive
-  Google Map to your resume!
-  -->
-  <!-- <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
   <meta name="viewport" content="width=device-width">
 </head>
 
@@ -47,108 +43,33 @@
   <script src="js/resumeBuilder.js"></script>
   <script type="text/javascript">
 
-    var formattedName = HTMLheaderName.replace("%data%", bio.myname);
-    $("#header").append([formattedName]);
-   
-    var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
-    $("#header").append([formattedRole]);
-   
-    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts['mobile']);
-    $("#header").append([formattedMobile]);
+    
 
-    var formattedEmail = HTMLemail.replace("%data%", bio.contacts['email']);
-    $("#header").append([formattedEmail]);
-
-    var formattedGit = HTMLgithub.replace("%data%", bio.contacts['github']);
-    $("#header").append([formattedGit]);
-
-    var formattedAddress = HTMLmobile.replace("%data%", bio.contacts['address']);
-    $("#header").append([formattedAddress]);
-
-    var formattedMsg = HTMLwelcomeMsg.replace("%data%", bio.welcome);
-    $('#header').append([formattedMsg]);
-
-    var formattedPicture = HTMLbioPic.replace("%data%", bio.picture);
-    $('#header').append([formattedPicture]);
-
-    if (bio.skills.length > 0) {
-      $("#header").append(HTMLskillsStart);
-      var formattedSkill;
-      for (skill in bio.skills) {
-        formattedSkill = HTMLskills.replace("%data%", bio.skills[skill]);
-        $("#skills").append([formattedSkill]);
-      }
-    }
-
-    function displayWork() {
-
-      for (job in work.jobs) {
-        $("#workExperience").append(HTMLworkStart);        
-        var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[job].employer);
-        var formattedTitle = HTMLworkTitle.replace("%data%", work.jobs[job].title);
-        var formattedEmployerTitle = formattedEmployer + formattedTitle;
-        $(".work-entry:last").append(formattedEmployerTitle);
-
-        var formattedDates = HTMLworkDates.replace("%data%", work.jobs[job].dates);
-        $(".work-entry:last").append(formattedDates);
-
-        var formattedLoc   = HTMLworkLocation.replace("%data%", work.jobs[job].location);
-        $(".work-entry:last").append(formattedLoc);
-
-        var formattedDesc  = HTMLworkDescription.replace("%data%", work.jobs[job].description);
-        $(".work-entry:last").append(formattedDesc);
-      }
-
-    }
-
+    displayBio();
     displayWork();
-
-    projects.display = function() {
-
-      for (project in projects.projects) {
-        $("#projects").append(HTMLprojectStart);
-         
-        var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
-        $(".project-entry:last").append(formattedTitle);
-
-        var formattedDates = HTMLprojectDates.replace("%data%", projects.projects[project].dates);
-        $(".project-entry:last").append(formattedDates);
-
-        var formattedDesc = HTMLprojectDescription.replace("%data%", projects.projects[project].description);
-        $(".project-entry:last").append(formattedDesc);
-
-        if (projects.projects[project].images.length > 0) {
-          for (image in projects.projects[project].images) {
-            var formattedImage = HTMLprojectImage.replace("%data%", projects.projects[project].images[image]);
-            $(".project-entry:last").append(formattedImage);
-          }
-        }
-      }      
-    }
-
-    projects.display();
+    displayProjects();
 
 
     if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('topContacts').style.display = 'none';
+      document.getElementsById('topContacts').style.display = 'none';
     }
     if(document.getElementsByTagName('h1').length === 0) {
-      document.getElementById('header').style.display = 'none';
+      document.getElementsById('header').style.display = 'none';
     }
     if(document.getElementsByClassName('work-entry').length === 0) {
-      document.getElementById('workExperience').style.display = 'none';
+      document.getElementsById('workExperience').style.display = 'none';
     }
     if(document.getElementsByClassName('project-entry').length === 0) {
-      document.getElementById('projects').style.display = 'none';
+      document.getElementsById('projects').style.display = 'none';
     }
     if(document.getElementsByClassName('education-entry').length === 0) {
-      document.getElementById('education').style.display = 'none';
+      document.getElementsById('education').style.display = 'none';
     }
     if(document.getElementsByClassName('flex-item').length === 0) {
-      document.getElementById('lets-connect').style.display = 'none';
+      document.getElementsById('lets-connect').style.display = 'none';
     }
     if(document.getElementsById('map') === null) {
-      document.getElementById('mapDiv').style.display = 'none';
+      document.getElementsById('mapDiv').style.display = 'none';
     }
 
   $(document).click(function(loc) {
