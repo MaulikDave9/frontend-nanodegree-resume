@@ -157,9 +157,19 @@ function displayProjects() {
 function displayEducation() {
 
    for (school in education.schools) {
+     
      $("#education").append(HTMLschoolStart);
      var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
      $(".education-entry:last").append(formattedName);
+     var formatedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+     $(".education-entry:last").append(formattedDegree);
+     var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
+     $(".education-entry:last").append(formattedDates);
+     var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
+     $(".education-entry:last").append(formattedLocation);
+     var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
+     $(".education-entry:last").append(formattedMajor);
+
    }
 
   $("#education").append(HTMLonlineClasses);
@@ -169,7 +179,6 @@ function displayEducation() {
      $(".education-entry:last").append(formattedName);
   }
 }
-
 
 function inName(name) {
   name = name.trim().split(" ");
