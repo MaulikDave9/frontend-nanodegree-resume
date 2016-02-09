@@ -35,11 +35,7 @@
     </div>
   </div>
 
-  <!--
-  The next line tells the browser where to download the JavaScript file you'll be
-  writing. In resumeBuilder.js, you'll be writing code that builds the resume
-  dynamically when this website, index.html, is opened.
-  -->
+
   <script src="js/resumeBuilder.js"></script>
   <script type="text/javascript">
 
@@ -49,6 +45,7 @@
     displayWork();
     displayProjects();
     displayEducation();
+    displayConnect();
 
 
     if(document.getElementsByClassName('flex-item').length === 0) {
@@ -69,7 +66,7 @@
     if(document.getElementsByClassName('flex-item').length === 0) {
       document.getElementsById('lets-connect').style.display = 'none';
     }
-    if(document.getElementsById('map') === null) {
+    if(document.getElementsByClassName('map') === null) {
       document.getElementsById('mapDiv').style.display = 'none';
     }
 

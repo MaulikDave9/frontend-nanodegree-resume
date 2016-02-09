@@ -18,7 +18,7 @@ var education = {
       "location": "Buffalo, NY, US",
       "degree": "MS",
       "majors": "Computer Science",
-      "dates": "2010-2012",
+      "dates": "2012",
       "url": "www.buffalo.edu"
     },
     {
@@ -26,7 +26,7 @@ var education = {
      "location": "Fresno, CA, US",
      "degree": "BS",
      "majors": "Computer Engineering",
-     "dates": "1997-2001",
+     "dates": "2001",
      "url": "www.fresnostate.edu"
     }
     ],
@@ -157,12 +157,14 @@ function displayProjects() {
 function displayEducation() {
 
    for (school in education.schools) {
-     
+
+
      $("#education").append(HTMLschoolStart);
-     var formattedName = HTMLschoolName.replace("%data%", education.schools[school].name);
-     $(".education-entry:last").append(formattedName);
+     var formattedName = HTMLschoolName.replace("#", education.schools[school].url);
+         formattedName = formattedName.replace("%data%", education.schools[school].name);
      var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
-     $(".education-entry:last").append(formattedDegree);
+     var wholelink = formattedName + formattedDegree;
+     $(".education-entry:last").append(wholelink);
      var formattedDates = HTMLschoolDates.replace("%data%", education.schools[school].dates);
      $(".education-entry:last").append(formattedDates);
      var formattedLocation = HTMLschoolLocation.replace("%data%", education.schools[school].location);
@@ -178,6 +180,21 @@ function displayEducation() {
      $("#education").append(HTMLschoolStart);
      $(".education-entry:last").append(formattedName);
   }
+}
+
+function displayConnect() {
+   
+    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts['mobile']);
+    $("#lets-connect").append([formattedMobile]);
+
+    var formattedEmail = HTMLemail.replace("%data%", bio.contacts['email']);
+    $("#lets-connect").append([formattedEmail]);
+
+    var formattedGit = HTMLgithub.replace("%data%", bio.contacts['github']);
+    $("#lets-connect").append([formattedGit]);
+
+    var formattedAddress = HTMLlocation.replace("%data%", bio.contacts['location']);
+    $("#lets-connect").append([formattedAddress]);
 }
 
 function inName(name) {
