@@ -1,7 +1,7 @@
 var bio = {
 	"name"     : "Maulik Dave",
 	"role"       : "Application Developer",
-	"contacts"   : { "mobile"  : "716-474-2621",
+	"contacts"   : { "mobile"  : "716-999-9999",
 					         "email"   : "maulikdave9@gmail.com",
 					         "github"  : "MaulikDave9",
 					         "location" : "Buffalo, NY"
@@ -19,7 +19,7 @@ var education = {
       "degree": "MS",
       "majors": "Computer Science",
       "dates": "2012",
-      "url": "www.buffalo.edu"
+      "url": "http://www.buffalo.edu"
     },
     {
      "name": "California State University, Fresno",
@@ -27,7 +27,7 @@ var education = {
      "degree": "BS",
      "majors": "Computer Engineering",
      "dates": "2001",
-     "url": "www.fresnostate.edu"
+     "url": "http://www.fresnostate.edu"
     }
     ],
 
@@ -35,7 +35,7 @@ var education = {
     { "title"  : "Frontend Development Nanodegree",
       "school" : "Udacity",
       "dates"  : "2015",
-      "url"    : "www.udacity.com"
+      "url"    : "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
     }
     ]
 }
@@ -171,30 +171,35 @@ function displayEducation() {
      $(".education-entry:last").append(formattedLocation);
      var formattedMajor = HTMLschoolMajor.replace("%data%", education.schools[school].majors);
      $(".education-entry:last").append(formattedMajor);
-
    }
 
   $("#education").append(HTMLonlineClasses);
   for (course in education.onlineCourses) {
-     var formattedName = HTMLonlineTitle.replace("%data%", education.onlineCourses[course].title);
+     var formattedName = HTMLonlineTitle.replace("#", education.onlineCourses[course].url);
+         formattedName = formattedName.replace("%data%", education.onlineCourses[course].title);
+     var formattedDegree = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
+     var wholelink = formattedName + formattedDegree;
      $("#education").append(HTMLschoolStart);
-     $(".education-entry:last").append(formattedName);
+     $(".education-entry:last").append(wholelink);
+     var formattedDates = HTMLonlineDates.replace("%data%", education.onlineCourses[course].dates);
+     $(".education-entry:last").append(formattedDates);
   }
 }
+
 
 function displayConnect() {
    
     var formattedMobile = HTMLmobile.replace("%data%", bio.contacts['mobile']);
-    $("#lets-connect").append([formattedMobile]);
+    $("#footerContacts").append([formattedMobile]);
 
     var formattedEmail = HTMLemail.replace("%data%", bio.contacts['email']);
-    $("#lets-connect").append([formattedEmail]);
+    $("#footerContacts").append([formattedEmail]);
 
     var formattedGit = HTMLgithub.replace("%data%", bio.contacts['github']);
-    $("#lets-connect").append([formattedGit]);
+    $("#footerContacts").append([formattedGit]);
 
     var formattedAddress = HTMLlocation.replace("%data%", bio.contacts['location']);
-    $("#lets-connect").append([formattedAddress]);
+    $("#footerContacts").append([formattedAddress]);
 }
 
 function inName(name) {
