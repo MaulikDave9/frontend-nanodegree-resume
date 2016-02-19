@@ -101,13 +101,17 @@ function initializeMap() {
         // iterates through school locations and appends each location to
         // the locations array
         for (var school in education.schools) {
-            locations.push(education.schools[school].location);
+            if (education.schools.hasOwnProperty(school)) {
+                locations.push(education.schools[school].location);
+            }
         }
 
         // iterates through work locations and appends each location to
         // the locations array
-        for (var job in work.jobs) {
-            locations.push(work.jobs[job].location);
+        for (var job in work.jobs) { 
+            if (work.jobs.hasOwnProperty(job)) {
+                locations.push(work.jobs[job].location);
+            }
         }
 
         return locations;
@@ -141,7 +145,7 @@ function initializeMap() {
         });
 
         google.maps.event.addListener(marker, 'click', function() {
-            infoWindow.open(map, marker)
+            infoWindow.open(map, marker);
         });
 
         // this is where the pin actually gets added to the map.
@@ -176,10 +180,11 @@ function initializeMap() {
         // Iterates through the array of locations, creates a search object for each location
         for (var place in locations) {
 
-            // the search request object
-            var request = {
-                query: locations[place]
-            };
+            if locations.hasOwnProperty(place) {
+                var request = {
+                    query: locations[place]
+                };
+            }
 
             // Actually searches the Google Maps API for location data and runs the callback
             // function with the search results after each search.
