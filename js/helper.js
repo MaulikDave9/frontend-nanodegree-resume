@@ -180,7 +180,7 @@ function initializeMap() {
         // Iterates through the array of locations, creates a search object for each location
         for (var place in locations) {
 
-            if locations.hasOwnProperty(place) {
+            if (locations.hasOwnProperty(place)) {
                 var request = {
                     query: locations[place]
                 };

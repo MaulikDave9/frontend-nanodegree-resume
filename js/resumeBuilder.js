@@ -135,7 +135,7 @@ function displayWork() {
 function displayProjects() {
 
     for (project in projects.projects) {
-        if projects.projects.hasOwnProperty(project) {
+        if (projects.projects.hasOwnProperty(project)) {
             $("#projects").append(HTMLprojectStart);
             var formattedTitle = HTMLprojectTitle.replace("%data%", projects.projects[project].title);
             $(".project-entry:last").append(formattedTitle);
