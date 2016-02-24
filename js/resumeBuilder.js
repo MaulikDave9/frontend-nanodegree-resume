@@ -1,18 +1,18 @@
 var bio = {
-    "name": "Maulik Dave",
-    "role": "Application Developer",
-    "contacts": {
-        "mobile": "716-999-9999",
-        "email": "maulikdave9@gmail.com",
-        "github": "MaulikDave9",
-        "twitter": "mkdave9",
-        "location": "Buffalo, NY"
+    'name': 'Maulik Dave',
+    'role': 'Application Developer',
+    'contacts': {
+        'mobile': '716-999-9999',
+        'email': 'maulikdave9@gmail.com',
+        'github': 'MaulikDave9',
+        'twitter': 'mkdave9',
+        'location': 'Buffalo, NY'
     },
-    "welcomeMessage": "Hello World! (Deja Vu - command line to online)",
-    "skills": ["Programming", "Data Analytics", "Technical sales"],
-    "biopic": "images/me.jpg",
+    'welcomeMessage': 'Hello World! (Deja Vu - command line to online)',
+    'skills': ['Programming', 'Data Analytics', 'Technical sales'],
+    'biopic': 'images/me.jpg',
     
-    "display": function() {
+    'display': function() {
 
         var formattedName = HTMLheaderName.replace("%data%", bio.name);
         $("#header").append([formattedName]);
@@ -40,38 +40,46 @@ var bio = {
                 }
             }
         }
+        var formattedMobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+        $("#footerContacts").append([formattedMobile]);
+        var formattedEmail = HTMLemail.replace("%data%", bio.contacts.email);
+        $("#footerContacts").append([formattedEmail]);
+        var formattedGit = HTMLgithub.replace("%data%", bio.contacts.github);
+        $("#footerContacts").append([formattedGit]);
+        var formattedAddress = HTMLlocation.replace("%data%", bio.contacts.location);
+        $("#footerContacts").append([formattedAddress]);
     }
 
 };
 
 
 var education = {
-    "schools": [{
-        "name": "University at Buffalo",
-        "location": "Buffalo, NY, US",
-        "degree": "MS",
-        "majors": "Computer Science",
-        "dates": "2012",
-        "url": "http://www.buffalo.edu"
+    'schools': [{
+        'name': 'University at Buffalo',
+        'location': 'Buffalo, NY, US',
+        'degree': 'MS',
+        'majors': ['Computer Science'],
+        'dates': '2012',
+        'url': 'http://www.buffalo.edu'
     }, {
-        "name": "California State University, Fresno",
-        "location": "Fresno, CA, US",
-        "degree": "BS",
-        "majors": "Computer Engineering",
-        "dates": "2001",
-        "url": "http://www.fresnostate.edu"
+        'name': 'California State University, Fresno',
+        'location': 'Fresno, CA, US',
+        'degree': 'BS',
+        'majors': ['Computer Engineering'],
+        'dates': '2001',
+        'url': 'http://www.fresnostate.edu'
     }],
 
-    "onlineCourses": [{
-        "title": "Frontend Development Nanodegree",
-        "school": "Udacity",
-        "date": "2016",
-        "url": "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+    'onlineCourses': [{
+        'title': 'Frontend Development Nanodegree',
+        'school': 'Udacity',
+        'date': '2016',
+        'url': 'https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001'
     }],
  
-    display: function() {
+    'display': function() {
 
-        for (school in education.schools) {
+        for (var school in education.schools) {
 
             $("#education").append(HTMLschoolStart);
             var formattedName = HTMLschoolName.replace("#", education.schools[school].url);
@@ -88,7 +96,7 @@ var education = {
         }
 
         $("#education").append(HTMLonlineClasses);
-        for (course in education.onlineCourses) {
+        for (var course in education.onlineCourses) {
             var formattedName = HTMLonlineTitle.replace("#", education.onlineCourses[course].url);
             formattedName = formattedName.replace("%data%", education.onlineCourses[course].title);
             var formattedDegree = HTMLonlineSchool.replace("%data%", education.onlineCourses[course].school);
@@ -103,27 +111,29 @@ var education = {
 
 
 var work = {
-    "jobs": [{
-        "employer": "University at Buffalo",
-        "title": "IT Analyst",
-        "location": "Buffalo, NY",
-        "dates": "2013-present",
-        "description": "Application Development and Support."
+    'jobs': [{
+        'employer': 'University at Buffalo',
+        'title': 'IT Analyst',
+        'location': 'Buffalo, NY',
+        'dates': '2013-present',
+        'description': 'Application Development and Support.'
     }, {
-        "employer": "IBM",
-        "title": "Technical Sales Support",
-        "location": "Buffalo, NY",
-        "dates": "2007-2013",
-        "description": "Pre-sales and post-sales support."
+        'employer': 'IBM',
+        'title': 'Technical Sales Support',
+        'location': 'Buffalo, NY',
+        'dates': '2007-2013',
+        'description': 'Pre-sales and post-sales support.'
     }, {
-        "employer": "IBM",
-        "title": "Engineer",
-        "location": "Rochester, MN",
-        "dates": "2002-2006",
-        "description": "Storage Controller ASIC Design and Verification."
+        'employer': 'IBM',
+        'title': 'Engineer',
+        'location': 'Rochester, MN',
+        'dates': '2002-2006',
+        'description': 'Storage Controller ASIC Design and Verification.'
     }],
 
-    display: function() {
+    'display': function() {
+
+        // Here using for in loop instead of iterating with array length as it seems more logical to me.
 
         for (var job in work.jobs) {
             if (work.jobs.hasOwnProperty(job)) {
@@ -149,15 +159,15 @@ var work = {
    
 
 var projects = {
-    "projects": [{
-            "title": "Frontend Development",
-            "dates": "2015",
-            "description": "Learning HTML, CSS, JavaScript.",
-            "images": []
+    'projects': [{
+            'title': 'Frontend Development',
+            'dates': '2015',
+            'description': 'Learning HTML, CSS, JavaScript.',
+            'images': []
         }
     ],
 
-    display: function() {
+    'display': function() {
 
         for (project in projects.projects) {
             if (projects.projects.hasOwnProperty(project)) {
@@ -182,29 +192,6 @@ var projects = {
     }
 };
 
-function displayConnect() {
-
-    var formattedMobile = HTMLmobile.replace("%data%", bio.contacts['mobile']);
-    $("#footerContacts").append([formattedMobile]);
-
-    var formattedEmail = HTMLemail.replace("%data%", bio.contacts['email']);
-    $("#footerContacts").append([formattedEmail]);
-
-    var formattedGit = HTMLgithub.replace("%data%", bio.contacts['github']);
-    $("#footerContacts").append([formattedGit]);
-
-    var formattedAddress = HTMLlocation.replace("%data%", bio.contacts['location']);
-    $("#footerContacts").append([formattedAddress]);
-}
-
-function inName(name) {
-    name = name.trim().split(" ");
-    console.log(name);
-    name[1] = name[1].toUpperCase();
-    name[0] = name[0].slice(0, 1).toUpperCase() + name[0].slice(1).toLowerCase();
-    return name[0] + " " + name[1];
-}
-$('#main').append(internationalizeButton);
 
 // Google Map
 $("#mapDiv").append(googleMap);
